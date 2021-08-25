@@ -104,6 +104,7 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                                 name="lastname"
                                 className={"p-2 border rounded block w-full"}
                                 placeholder={"Last Name"}
+                                required
                             />
                         </div>
                         <div className="flex gap-x-2 mb-1">
@@ -112,12 +113,14 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                                 name="email"
                                 className={"p-2 border rounded block w-full"}
                                 placeholder={"Address"}
+                                required
                             />
                             <Field
                                 type="text"
                                 name="address1"
                                 className={"p-2 border rounded block w-full"}
                                 placeholder={"Address"}
+                                required
                             />
                         </div>
                         <div className="flex gap-x-2 mb-1">
@@ -126,12 +129,14 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                                 name="zip"
                                 className={"p-2 border rounded block w-full"}
                                 placeholder={"Zip/Postal Code"}
+                                required
                             />
                             <Field
                                 type="text"
                                 name="city"
                                 className={"p-2 border rounded block w-full"}
                                 placeholder={"City"}
+                                required
                             />
                         </div>
                         <div className="flex gap-x-2 mb-1">
