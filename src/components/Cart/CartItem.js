@@ -32,13 +32,13 @@ const CartItem = ({ id, product_id, name, media, price, quantity }) => {
                 <img src={media.source} alt={name} className={"h-full w-full object-contain"}/>
             </div>
 
-            <h4 className={"flex-grow font-semibold text-gray-600 px-2"}>{name}</h4>
+            <h4 className={"flex-grow font-medium text-gray-600 px-2"}>{name}</h4>
 
             <div className={"flex items-center mr-4"}>
                 <button className={"px-4 py-2 bg-gray-200 rounded mx-2 hover:bg-gray-300"}
                 onClick={() => onQuantityChange(quantity - 1) }
                 >-</button>
-                <p className={"font-semibold"}>
+                <p className={"font-medium"}>
                     {quantity}
                 </p>
                 <button className={"px-4 py-2 bg-gray-200 rounded mx-2 hover:bg-gray-300"}
@@ -47,7 +47,7 @@ const CartItem = ({ id, product_id, name, media, price, quantity }) => {
             </div>
 
             <div>
-                <button className={"bg-red-400 text-white rounded px-3 py-2 font-semibold hover:bg-red-500"}
+                <button className={"bg-red-400 text-white rounded px-3 py-2 font-medium hover:bg-red-500"}
                 onClick={() => handleRemoveClick() }
                 >Remove</button>
             </div>

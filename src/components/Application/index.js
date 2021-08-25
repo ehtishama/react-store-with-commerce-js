@@ -10,6 +10,8 @@ import Checkout from "../Checkout/Checkout";
 import {commerce} from "../../lib/commerce";
 import { setCart } from "../../redux/reducers/cartReducer";
 
+import './index.css'
+
 export default function Application() {
 
     const dispatch = useDispatch()

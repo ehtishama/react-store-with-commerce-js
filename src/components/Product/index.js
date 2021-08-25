@@ -26,7 +26,7 @@ function Product({ product }) {
                         />
                     </div>
                     <div className="p-4">
-                        <div className="font-semibold text-gray-600 h-6 overflow-hidden">
+                        <div className="font-medium text-gray-600 h-6 overflow-hidden">
                             {name}
                         </div>
                         <div className="text-gray-500">
