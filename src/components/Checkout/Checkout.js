@@ -1,4 +1,4 @@
-import {Stepper, Step, StepLabel, Paper} from "@material-ui/core";
+import {Stepper, Step, StepLabel} from "@material-ui/core";
 import React from "react";
 import {useEffect} from "react";
 import {useState} from "react";
@@ -18,7 +18,7 @@ const Checkout = () => {
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [currentStep, setCurrentStep] = useState(0);
 
-    const [shippingData, setShippingData] = useState(null)
+    const [shippingData, setShippingData] = useState({firstname: '', lastname: '', email: '', address1: '', zip: '', city: ''})
 
     const generateCheckoutToken = async () => {
         if (cart.id) {
@@ -123,6 +123,7 @@ const Checkout = () => {
                         checkoutToken={checkoutToken}
                         nextStep={nextStep}
                         passData={setShippingData}
+                        formValues={shippingData}
                     />
                 )}
 

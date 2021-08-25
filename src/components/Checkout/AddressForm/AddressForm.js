@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { commerce } from "../../../lib/commerce";
 
-const AddressForm = ({ checkoutToken, nextStep, passData }) => {
+const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
     const [countries, setCountries] = useState([]);
     const [country, setCountry] = useState("");
 
@@ -85,7 +85,7 @@ const AddressForm = ({ checkoutToken, nextStep, passData }) => {
     return (
         <div>
             <Formik
-                initialValues={{}}
+                initialValues={formValues}
                 onSubmit={handleFormSubmit}
             >
                 {() => (
