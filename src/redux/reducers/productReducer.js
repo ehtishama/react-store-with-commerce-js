@@ -19,7 +19,8 @@ const initialState = []
 // reducer
 export default function productReducer(state = initialState, action) {
     if(action.type === ADD_PRODUCTS) {
-        return [...state, ...action.payload]
+        // return [...state, ...action.payload]
+        return [...action.payload]
     }
     return state
 }

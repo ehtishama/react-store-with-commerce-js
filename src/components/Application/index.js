@@ -1,62 +1,56 @@
-import React, {useEffect} from "react";
-import Header from "../Header";
-import ProductsListings from "../ProductsListing";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
-import ProductDetails from "../ProductDetails";
-import {addProducts} from "../../redux/reducers/productReducer";
-import {useDispatch} from "react-redux";
-import Cart from "../Cart/Cart";
-import Checkout from "../Checkout/Checkout";
-import {commerce} from "../../lib/commerce";
-import { setCart } from "../../redux/reducers/cartReducer";
+import React, { useEffect } from "react"
+import Header from "../Header"
+import ProductsListings from "../ProductsListing"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import ProductDetails from "../ProductDetails"
+import { addProducts } from "../../redux/reducers/productReducer"
+import { useDispatch } from "react-redux"
+import Cart from "../Cart/Cart"
+import Checkout from "../Checkout/Checkout"
+import { commerce } from "../../lib/commerce"
+import { setCart } from "../../redux/reducers/cartReducer"
 
-import './index.css'
+import "./index.css"
 
 export default function Application() {
+  const dispatch = useDispatch()
 
-    const dispatch = useDispatch()
+  const getProducts = async () => {
+    const { data } = await commerce.products.list()
+    dispatch(addProducts(data))
+  }
 
-    const getProducts = async () => {
-        const {data} = await commerce.products.list()
-        dispatch(addProducts(data))
-    }
+  const getCart = async () => {
+    const cart = await commerce.cart.retrieve()
+    dispatch(setCart(cart))
+  }
 
-    const getCart = async () => {
-        const cart = await commerce.cart.retrieve()
-        dispatch(setCart(cart))
-    }
+  useEffect(() => {
+    getProducts()
+    getCart()
+  }, [])
 
-    // get cart(async api calls) -> add to state(dispatch) ✅
-    // add/remove/update cart -> get cart(async api call) -> add to state(dispatch)
-    // 
+  return (
+    <Router>
+      <Header />
 
-    useEffect(() => {
-        
-        getProducts()
-        getCart()
+      <Switch>
+        <Route exact={true} path={"/"}>
+          <ProductsListings />
+        </Route>
 
-    }, [])
+        <Route exact={true} path={"/product-details/:productId"}>
+          <ProductDetails />
+        </Route>
 
-    return <Router>
-        <Header/>
+        <Route exact path={"/cart"}>
+          <Cart />
+        </Route>
 
-        <Switch>
-            <Route exact={true} path={"/"}>
-                <ProductsListings/>
-            </Route>
-
-            <Route exact={true} path={"/product-details/:productId"}>
-                <ProductDetails />
-            </Route>
-
-            <Route exact path={"/cart"}>
-                <Cart />
-            </Route>
-
-            <Route exact path={"/checkout"}>
-                <Checkout />
-            </Route>
-        </Switch>
-
+        <Route exact path={"/checkout"}>
+          <Checkout />
+        </Route>
+      </Switch>
     </Router>
+  )
 }

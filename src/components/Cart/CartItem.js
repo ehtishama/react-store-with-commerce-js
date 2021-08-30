@@ -41,7 +41,7 @@ const CartItem = ({ id, product_id, name, media, price, quantity }) => {
                 <p className={"font-medium"}>
                     {quantity}
                 </p>
-                <button className={"px-4 py-2 bg-gray-200 rounded mx-2 hover:bg-gray-300"}
+                <button className={"px-4 py-2 bg-gray-200 rounded mx-2 hover:bg-gray-300 focus:outline-black"}
                 onClick={() => onQuantityChange(quantity + 1) }
                 >+</button>
             </div>
