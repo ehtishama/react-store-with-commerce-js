@@ -1,4 +1,3 @@
-import { Button } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { useEffect } from "react";
@@ -90,11 +89,11 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
             >
                 {() => (
                     <Form>
-                        <div className="flex gap-x-2 mt-4 mb-1">
+                        <div className="md:flex gap-x-2 mt-4 mb-1">
                             <Field
                                 type="text"
                                 name="firstname"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 placeholder={"First Name"}
                                 required
                             />
@@ -102,48 +101,48 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                             <Field
                                 type="text"
                                 name="lastname"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 placeholder={"Last Name"}
                                 required
                             />
                         </div>
-                        <div className="flex gap-x-2 mb-1">
+                        <div className="md:flex gap-x-2 mb-1">
                             <Field
                                 type="email"
                                 name="email"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 placeholder={"Address"}
                                 required
                             />
                             <Field
                                 type="text"
                                 name="address1"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 placeholder={"Address"}
                                 required
                             />
                         </div>
-                        <div className="flex gap-x-2 mb-1">
+                        <div className="md:flex gap-x-2 mb-1">
                             <Field
                                 type="text"
                                 name="zip"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 placeholder={"Zip/Postal Code"}
                                 required
                             />
                             <Field
                                 type="text"
                                 name="city"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 placeholder={"City"}
                                 required
                             />
                         </div>
-                        <div className="flex gap-x-2 mb-1">
+                        <div className="md:flex gap-x-2 mb-1">
                             <select
                                 name="country"
                                 id="countries"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 value={country}
                                 onChange={onCountryChange}
                             >
@@ -161,7 +160,7 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                             <select
                                 name="subdivision"
                                 id="countries"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 value={subdivision}
                                 onChange={onChangeSubdivision}
                             >
@@ -176,11 +175,11 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                                 ))}
                             </select>
                         </div>
-                        <div className="flex gap-x-2 mb-1">
+                        <div className="md:flex gap-x-2 mb-1">
                             <select
                                 name="shippingOption"
                                 id="countries"
-                                className={"p-2 border rounded block w-full"}
+                                className={"input-field"}
                                 value={shippingOption}
                                 onChange={onChangeShippingOption}
                             >
@@ -201,7 +200,7 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
                             </select>
                         </div>
                         <div className="flex justify-end">
-                        <Button variant="contained" color="primary" type="submit">Next</Button>
+                        <button className={"btn btn-indigo px-8 w-full py-3 font-medium mt-2"} type="submit">Next</button>
                         </div>
                     </Form>
                 )}

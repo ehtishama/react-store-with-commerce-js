@@ -17,6 +17,7 @@ export default function Application() {
 
   const getProducts = async () => {
     const { data } = await commerce.products.list()
+    data.reverse()
     dispatch(addProducts(data))
   }
 
@@ -33,7 +34,7 @@ export default function Application() {
   return (
     <Router>
       <Header />
-
+    
       <Switch>
         <Route exact={true} path={"/"}>
           <ProductsListings />

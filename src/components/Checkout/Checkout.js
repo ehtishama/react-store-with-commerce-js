@@ -109,7 +109,8 @@ const Checkout = () => {
 
   return (
     <div className={"container mx-auto my-4"}>
-      <div className={"mx-auto md:w-8/12 lg:w-4/12 space-y-6"}>
+
+      <div className={"lg:w-6/12 w-full mx-auto space-y-6"}>
         <h2 className={"text-4xl text-gray-800 font-medium text-center"}>Checkout</h2>
 
         <Stepper alternativeLabel activeStep={currentStep}>
@@ -142,6 +143,7 @@ const Checkout = () => {
         )}
         {currentStep === 2 && <Confirmation />}
       </div>
+    
     </div>
   )
 }

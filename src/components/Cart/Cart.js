@@ -22,9 +22,9 @@ const Cart = () => {
             <div className={"mt-4 flex justify-end"}>
                 <Link to={"/checkout"}>
                     <button
-                        className={"flex items-center px-4 py-3 rounded bg-purple-500 text-white font-medium hover:bg-purple-600"}>
-                        <h4 className={"mr-3 tracking-wide"}>Checkout</h4>
-                        <BsArrowRight size={24}/>
+                        className={"btn btn-indigo flex gap-1"}>
+                        <h4 className={"tracking-wide"}>Checkout</h4>
+                        <BsArrowRight size={24} className="relative hover:left-2"/>
                     </button>
                 </Link>
             </div>
