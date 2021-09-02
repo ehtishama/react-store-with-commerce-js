@@ -111,9 +111,9 @@ const Checkout = () => {
     <div className={"container mx-auto my-4"}>
 
       <div className={"lg:w-6/12 w-full mx-auto space-y-6"}>
-        <h2 className={"text-4xl text-gray-800 font-medium text-center"}>Checkout</h2>
+        <h2 className={"title text-center"}>Checkout</h2>
 
-        <Stepper alternativeLabel activeStep={currentStep}>
+        <Stepper alternativeLabel activeStep={currentStep} >
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>

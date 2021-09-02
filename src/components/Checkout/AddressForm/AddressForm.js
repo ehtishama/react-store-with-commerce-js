@@ -15,7 +15,7 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
     const [shippingOption, setShippingOption] = useState("");
 
     const getShippingCountries = async () => {
-        let { countries, html } =
+        let { countries } =
             await commerce.services.localeListShippingCountries(
                 checkoutToken.id
             );
