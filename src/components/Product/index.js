@@ -27,7 +27,7 @@ function Product({ product }) {
         </Link>
         <div className="p-4">
           <div className="text-gray-700 h-6 overflow-hidden">{name}</div>
-          <Rating readOnly/>
+          <Rating readOnly value={4.5}/>
           <div className="font-medium text-gray-800">{price.formatted_with_symbol}</div>
           <button className="btn btn-indigo-secondary w-full mt-4 font-medium" onClick={handleAddCartClick}>
             Add to cart

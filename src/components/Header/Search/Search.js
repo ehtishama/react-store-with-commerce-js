@@ -5,22 +5,22 @@ import { useDispatch, useSelector } from "react-redux"
 import { addSearchResults } from "../../../redux/reducers/searchReducer"
 
 const Search = () => {
-
   const dispatch = useDispatch()
-  const products = useSelector(state => state.products)
+  const products = useSelector((state) => state.products)
   const [query, setQuery] = useState("")
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
+    if (query === "") {
+      dispatch(addSearchResults([]))
+      return
+    }
 
-    const searchResults = products.filter(product => {
+    const searchResults = products.filter((product) => {
       return product.name.includes(query)
     })
 
-  
     dispatch(addSearchResults(searchResults))
-      
-      
   }
 
   return (

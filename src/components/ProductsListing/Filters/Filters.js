@@ -1,6 +1,9 @@
 import { Checkbox, Slider } from "@material-ui/core"
 import React, { useState } from "react"
 import SortByFilter from "./SortByFilter/SortByFilter"
+import { commerce } from "../../../lib/commerce"
+import { useEffect } from "react"
+import CategoryFilter from "./CategoryFilter/CategoryFilter"
 
 const Filters = () => {
   const [priceRange, setPriceRange] = useState([20, 370])
@@ -27,6 +30,8 @@ const Filters = () => {
   const handleMinInputChange = (e) => {
     handlePriceInputChange("min", e.target.value)
   }
+
+  
 
   return (
     <div className="border rounded m-2 p-4 space-y-8">
@@ -73,17 +78,8 @@ const Filters = () => {
         <input type="submit" className="btn btn-indigo w-full mt-4" value="Apply" />
       </div>
 
-      <div>
-        <h4 className="title text-lg text-indigo-600 font-medium mb-2">Categories</h4>
-
-        <div className="flex gap-2 items-center">
-          <Checkbox id={"category1"} color={"primary"} />
-          <label htmlFor="category1" className="select-none cursor-pointer font-medium text-gray-700">
-            Category 1
-          </label>
-        </div>
-      </div>
-    
+      <CategoryFilter />
+      
     </div>
   )
 }

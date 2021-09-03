@@ -26,9 +26,9 @@ export default function Header() {
 
                 <Link to={'/cart'}>
                     <div className={"text-gray-700 hover:bg-gray-200 p-2 rounded-full cursor-pointer relative"}>
-                        <MdShoppingCart size={30}/>
+                        <MdShoppingCart size={40} className="border rounded-full p-2 bg-gray-200"/>
                         <p
-                            className={"w-5 h-5 rounded-full bg-red-600 text-white text-sm font-medium  absolute top-0 right-0 flex items-center justify-center"}>
+                            className={"w-5 h-5 rounded-full bg-red-500 text-white text-sm font-medium  absolute top-0 right-0 flex items-center justify-center"}>
                             {cartItemCount}
                         </p>
                     </div>
