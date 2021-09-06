@@ -27,14 +27,7 @@ const Checkout = () => {
     city: "",
   })
 
-  const generateCheckoutToken = async () => {
-    if (cart.id) {
-      const token = await commerce.checkout.generateToken(cart.id, {
-        type: "cart",
-      })
-      setCheckoutToken(token)
-    }
-  }
+
 
   const nextStep = () => setCurrentStep(currentStep + 1)
   const prevStep = () => setCurrentStep(currentStep - 1)
@@ -94,7 +87,7 @@ const Checkout = () => {
     }
 
     try {
-      const order = await commerce.checkout.capture(checkoutToken.id, newOrder)
+      await commerce.checkout.capture(checkoutToken.id, newOrder)
       alert("Order placed")
     } catch (error) {
       console.log("There was an error capturing order.")
@@ -104,7 +97,18 @@ const Checkout = () => {
 
   // Side Effects
   useEffect(() => {
+
+    const generateCheckoutToken = async () => {
+      if (cart.id) {
+        const token = await commerce.checkout.generateToken(cart.id, {
+          type: "cart",
+        })
+        setCheckoutToken(token)
+      }
+    }
+
     generateCheckoutToken()
+    
   }, [cart])
 
   return (

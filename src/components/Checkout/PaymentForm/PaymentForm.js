@@ -2,7 +2,6 @@ import { Button } from "@material-ui/core"
 import { CardElement, Elements, ElementsConsumer } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import React from "react"
-import { commerce } from "../../../lib/commerce"
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK)
 

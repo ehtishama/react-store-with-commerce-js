@@ -2,7 +2,6 @@ import React from "react"
 import { Radio, RadioGroup } from "@material-ui/core"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { sortProducts } from "../../../../redux/reducers/productReducer"
 import { addSearchResults } from "../../../../redux/reducers/searchReducer"
 
 const SortByFilter = () => {

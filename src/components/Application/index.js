@@ -3,7 +3,6 @@ import Header from "../Header"
 import ProductsListings from "../ProductsListing"
 import { Switch, Route, useLocation } from "react-router-dom"
 import ProductDetails from "../ProductDetails"
-import { addProducts } from "../../redux/reducers/productReducer"
 import { useDispatch } from "react-redux"
 import Cart from "../Cart/Cart"
 import Checkout from "../Checkout/Checkout"
@@ -19,14 +18,16 @@ export function useQuery() {
 export default function Application() {
     const dispatch = useDispatch()
 
-    const getCart = async () => {
-        const cart = await commerce.cart.retrieve()
-        dispatch(setCart(cart))
-    }
+
 
     useEffect(() => {
+        const getCart = async () => {
+            const cart = await commerce.cart.retrieve()
+            dispatch(setCart(cart))
+        }
+
         getCart()
-    }, [])
+    }, [dispatch])
 
     return (
         <>

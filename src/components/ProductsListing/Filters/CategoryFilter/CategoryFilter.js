@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { commerce } from "../../../../lib/commerce"
 import { Checkbox } from "@material-ui/core"
 import { useDispatch, useSelector } from "react-redux"
-import { addProducts } from "../../../../redux/reducers/productReducer"
 import { addSearchResults } from "../../../../redux/reducers/searchReducer"
 import { useRef } from "react"
 

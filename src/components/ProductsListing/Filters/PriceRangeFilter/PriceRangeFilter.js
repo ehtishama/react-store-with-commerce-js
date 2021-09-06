@@ -15,7 +15,7 @@ const PriceRangeFilter = () => {
     }
 
     const handlePriceInputChange = (type, value) => {
-        if (type == "min") {
+        if (type === "min") {
             const maxPrice = priceRange[1]
             setPriceRange([value, maxPrice])
         } else {

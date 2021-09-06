@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+
 
 const Summary = ({ checkoutToken }) => {
   if (!checkoutToken) return ""

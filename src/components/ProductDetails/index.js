@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 
 function ProductDetails() {
   const { productId } = useParams()
-  const product = useSelector((state) => state.products.find((product) => product.id == productId))
+  const product = useSelector((state) => state.products.find((product) => product.id === productId))
 
   if (!product) return "Loading...."
 
@@ -16,7 +16,7 @@ function ProductDetails() {
       <div className="flex">
         <div className="md:w-1/2 p-4">
           <div className={"p-4 h-80 bg-white"}>
-            <img src={media.source} className={"w-full h-full object-contain"} />
+            <img src={media.source} className={"w-full h-full object-contain"} alt={""} />
           </div>
         </div>
         <div className="md:w-1/2 p-4 space-y-3">

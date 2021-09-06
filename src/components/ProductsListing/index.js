@@ -16,30 +16,28 @@ function ProductsListings() {
 
     const dispatch = useDispatch()
 
-    const getProducts = async (limit, pageNo) => {
-        setLoading(true)
-        const { data, meta } = await commerce.products.list({
-            limit,
-            page: pageNo,
-            sortBy: "created_at",
-            sortDirection: "desc",
-        })
-        dispatch(addProducts(data))
-        setPagination(meta.pagination)
-    }
-
     const handlePageChange = (e, value) => {
         setPagination({ ...pagination, current_page: value })
     }
 
     useEffect(() => {
-        getProducts(9, pagination.current_page).then(() => setLoading(false))
-    }, [pagination.current_page])
+        const getProducts = async (limit, pageNo) => {
+            setLoading(true)
+            const { data, meta } = await commerce.products.list({
+                limit,
+                page: pageNo,
+                sortBy: "created_at",
+                sortDirection: "desc",
+            })
+            dispatch(addProducts(data))
+            setPagination(meta.pagination)
+        }
 
-    const sortByPrice = (x) => {
-        // products = useSelector((state) => state.products)
-        // (first, second) => first.price.raw > second.price.raw)
-    }
+        getProducts(9, pagination.current_page)
+            .then(() => setLoading(false))
+    
+    }, [pagination.current_page, dispatch])
+
 
     return (
         <>
@@ -48,7 +46,7 @@ function ProductsListings() {
                     <Filters />
                 </div>
 
-                {products.length !== 0 && !loading &&  (
+                {products.length !== 0 && !loading && (
                     <div className="md:w-9/12 mx-auto space-y-6">
                         <div className="flex flex-wrap justify-start">
                             {searchResults.length > 0 &&
@@ -70,7 +68,7 @@ function ProductsListings() {
                     </div>
                 )}
 
-                {(products.length === 0 || loading) &&  <ListingLoader />}
+                {(products.length === 0 || loading) && <ListingLoader />}
             </div>
         </>
     )
@@ -78,11 +76,6 @@ function ProductsListings() {
 
 const ListingLoader = () => (
     <div className="container mx-auto flex flex-wrap">
-        
-        <ProductLoader />
-        <ProductLoader />
-        <ProductLoader />
-        
         <ProductLoader />
         <ProductLoader />
         <ProductLoader />
@@ -90,7 +83,10 @@ const ListingLoader = () => (
         <ProductLoader />
         <ProductLoader />
         <ProductLoader />
-        
+
+        <ProductLoader />
+        <ProductLoader />
+        <ProductLoader />
     </div>
 )
 
