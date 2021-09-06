@@ -24,10 +24,12 @@ const initialState = []
 
 // reducer
 export default function productReducer(state = initialState, action) {
+  
   if (action.type === ADD_PRODUCTS) {
     // return [...state, ...action.payload]
     return [...action.payload]
   }
+
   if (action.type === SORT_PRODUCTS) {
     if (action.payload === "price_asc")
       return [...state.sort((first, second) => (first.price.raw >= second.price.raw ? 1 : -1))]

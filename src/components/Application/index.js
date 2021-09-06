@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import Header from "../Header"
 import ProductsListings from "../ProductsListing"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { Switch, Route, useLocation } from "react-router-dom"
 import ProductDetails from "../ProductDetails"
 import { addProducts } from "../../redux/reducers/productReducer"
 import { useDispatch } from "react-redux"
@@ -12,46 +12,43 @@ import { setCart } from "../../redux/reducers/cartReducer"
 
 import "./index.css"
 
+export function useQuery() {
+    return new URLSearchParams(useLocation().search)
+}
+
 export default function Application() {
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-  const getProducts = async () => {
-    const { data } = await commerce.products.list()
-    data.reverse()
-    dispatch(addProducts(data))
-  }
+    const getCart = async () => {
+        const cart = await commerce.cart.retrieve()
+        dispatch(setCart(cart))
+    }
 
-  const getCart = async () => {
-    const cart = await commerce.cart.retrieve()
-    dispatch(setCart(cart))
-  }
+    useEffect(() => {
+        getCart()
+    }, [])
 
-  useEffect(() => {
-    getProducts()
-    getCart()
-  }, [])
+    return (
+        <>
+            <Header />
 
-  return (
-    <Router>
-      <Header />
-    
-      <Switch>
-        <Route exact={true} path={"/"}>
-          <ProductsListings />
-        </Route>
+            <Switch>
+                <Route exact={true} path={"/"}>
+                    <ProductsListings />
+                </Route>
 
-        <Route exact={true} path={"/product-details/:productId"}>
-          <ProductDetails />
-        </Route>
+                <Route exact={true} path={"/product-details/:productId"}>
+                    <ProductDetails />
+                </Route>
 
-        <Route exact path={"/cart"}>
-          <Cart />
-        </Route>
+                <Route exact path={"/cart"}>
+                    <Cart />
+                </Route>
 
-        <Route exact path={"/checkout"}>
-          <Checkout />
-        </Route>
-      </Switch>
-    </Router>
-  )
+                <Route exact path={"/checkout"}>
+                    <Checkout />
+                </Route>
+            </Switch>
+        </>
+    )
 }

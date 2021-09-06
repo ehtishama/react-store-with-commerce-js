@@ -1,87 +1,18 @@
-import { Checkbox, Slider } from "@material-ui/core"
-import React, { useState } from "react"
+import React from "react"
 import SortByFilter from "./SortByFilter/SortByFilter"
-import { commerce } from "../../../lib/commerce"
-import { useEffect } from "react"
 import CategoryFilter from "./CategoryFilter/CategoryFilter"
+import PriceRangeFilter from "./PriceRangeFilter/PriceRangeFilter"
 
 const Filters = () => {
-  const [priceRange, setPriceRange] = useState([20, 370])
-  const [minPrice, maxPrice] = priceRange
+    return (
+        <div className="border rounded m-2 p-4 space-y-8">
+            <SortByFilter />
 
-  const handlePriceSliderChange = (e, value) => {
-    setPriceRange(value)
-  }
+            <PriceRangeFilter />
 
-  const handlePriceInputChange = (type, value) => {
-    if (type == "min") {
-      const maxPrice = priceRange[1]
-      setPriceRange([value, maxPrice])
-    } else {
-      const minPrice = priceRange[0]
-      setPriceRange([minPrice, value])
-    }
-  }
-
-  const handleMaxInputChange = (e) => {
-    handlePriceInputChange("max", e.target.value)
-  }
-
-  const handleMinInputChange = (e) => {
-    handlePriceInputChange("min", e.target.value)
-  }
-
-  
-
-  return (
-    <div className="border rounded m-2 p-4 space-y-8">
-      <SortByFilter />
-
-      <div className="">
-        <h4 className="title text-lg text-indigo-600 font-medium mb-2">Price Range</h4>
-        <Slider
-          valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
-          value={priceRange}
-          onChange={handlePriceSliderChange}
-          max={1000}
-        />
-
-        <div className="flex items-center">
-          <span className="h-full block py-2 px-4 mb-1 font-medium bg-gray-200 text-lg border rounded-tl rounded-bl">
-            $
-          </span>
-          <input
-            type="number"
-            className="input-field p-2 rounded-tl-none rounded-bl-none"
-            placeholder="min"
-            onChange={handleMinInputChange}
-            value={minPrice}
-            step={10}
-          />
+            <CategoryFilter />
         </div>
-
-        <div className={"flex items-center"}>
-          <span className="h-full block py-2 px-4 mb-1 font-medium bg-gray-200 text-lg border rounded-tl rounded-bl">
-            $
-          </span>
-          <input
-            type="number"
-            className="input-field p-2 rounded-tl-none rounded-bl-none"
-            placeholder="max"
-            onChange={handleMaxInputChange}
-            value={maxPrice}
-            step={10}
-          />
-        </div>
-
-        <input type="submit" className="btn btn-indigo w-full mt-4" value="Apply" />
-      </div>
-
-      <CategoryFilter />
-      
-    </div>
-  )
+    )
 }
 
 export default Filters
