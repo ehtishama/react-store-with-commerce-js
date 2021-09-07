@@ -72,7 +72,7 @@ function ProductsListings() {
 }
 
 const ListingLoader = () => (
-    <div className="lg:w-9/12 md:w-8/12 mx-auto flex flex-wrap">
+    <div className="lg:w-9/12 md:w-8/12 mx-auto flex flex-wrap order-1">
         <ProductLoader />
         <ProductLoader />
         <ProductLoader />

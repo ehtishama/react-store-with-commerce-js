@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {MdShoppingCart} from "react-icons/md"
 import {useSelector} from "react-redux"
 import Search from "./Search/Search";
+import logo from '../../assets/logo_temp_2.png'
 
 export default function Header() {
 
@@ -10,13 +11,9 @@ export default function Header() {
 
     return (
         <div className="bg-white border mb-8">
-            <div className="container mx-auto py-4 flex items-center gap-2 justify-between">
+            <div className="container mx-auto p-4 flex items-center gap-2 justify-between">
                 <Link to={"/"}>
-                    <h2 className={"text-xl font-medium text-gray-800"}>
-                        <span className={"text-blue-500"}>React</span>
-                        <span className={"text-purple-700"}> Redux&nbsp;</span>
-                        Shop
-                    </h2>
+                    <img src={logo} alt="Logo" className="w-28"/>
                 </Link>
 
                 <div>
