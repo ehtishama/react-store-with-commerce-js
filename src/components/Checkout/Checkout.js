@@ -112,7 +112,7 @@ const Checkout = () => {
   }, [cart])
 
   return (
-    <div className={"container mx-auto my-4"}>
+    <div className={"container mx-auto my-4 p-4"}>
 
       <div className={"lg:w-6/12 w-full mx-auto space-y-6"}>
         <h2 className={"title text-center"}>Checkout</h2>

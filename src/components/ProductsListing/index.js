@@ -33,21 +33,18 @@ function ProductsListings() {
             setPagination(meta.pagination)
         }
 
-        getProducts(9, pagination.current_page)
-            .then(() => setLoading(false))
-    
+        getProducts(9, pagination.current_page).then(() => setLoading(false))
     }, [pagination.current_page, dispatch])
-
 
     return (
         <>
-            <div className="container mx-auto flex mb-16">
-                <div className="md:w-3/12">
+            <div className="container mx-auto flex flex-wrap mb-16">
+                <div className="lg:w-3/12 md:w-4/12 w-full order-2 md:order-1">
                     <Filters />
                 </div>
 
                 {products.length !== 0 && !loading && (
-                    <div className="md:w-9/12 mx-auto space-y-6">
+                    <div className="lg:w-9/12 md:w-8/12 mx-auto space-y-6 order-1">
                         <div className="flex flex-wrap justify-start">
                             {searchResults.length > 0 &&
                                 searchResults.map((product) => <Product key={product.id} product={product} />)}
@@ -75,7 +72,7 @@ function ProductsListings() {
 }
 
 const ListingLoader = () => (
-    <div className="container mx-auto flex flex-wrap">
+    <div className="lg:w-9/12 md:w-8/12 mx-auto flex flex-wrap">
         <ProductLoader />
         <ProductLoader />
         <ProductLoader />

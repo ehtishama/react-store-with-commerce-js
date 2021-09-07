@@ -16,7 +16,7 @@ function Product({ product }) {
     }
 
     return (
-        <div className="md:w-1/3 sm:w-1/2 w-full p-2" key={id}>
+        <div className="lg:w-1/3 sm:w-1/2 w-full p-2" key={id}>
             <div className={"border rounded hover:shadow"}>
                 <Link to={`/product-details/${id}`}>
                     <div className="h-72 p-4">

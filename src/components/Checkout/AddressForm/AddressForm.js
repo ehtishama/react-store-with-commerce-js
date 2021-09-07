@@ -48,7 +48,7 @@ const AddressForm = ({ checkoutToken, nextStep, passData, formValues }) => {
         }
 
         getShippingOptions(country, subdivision)
-    }, [subdivision, country, checkoutToken.id])
+    }, [subdivision, country, checkoutToken?.id])
 
     // Handlers
     const onCountryChange = (e) => {

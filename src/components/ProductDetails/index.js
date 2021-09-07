@@ -13,26 +13,29 @@ function ProductDetails() {
 
   return (
     <div className="max-w-screen-lg mx-auto border-l border-r">
-      <div className="flex">
-        <div className="md:w-1/2 p-4">
+      <div className="flex flex-wrap">
+
+        <div className="w-full md:w-1/2 p-4">
           <div className={"p-4 h-80 bg-white"}>
             <img src={media.source} className={"w-full h-full object-contain"} alt={""} />
           </div>
         </div>
-        <div className="md:w-1/2 p-4 space-y-3">
+        <div className="w-full md:w-1/2 p-4 space-y-3">
           <h1 className={"title"}>{name}</h1>
           <h2 className={"sub-title font-regular"}>{price.formatted_with_symbol}</h2>
           <Rating />
           <p className={"text-gray-600 text-justify"} dangerouslySetInnerHTML={{ __html: description }} />
-          <div className={"flex gap-2"}>
-            <button className={"btn btn-indigo"}>Add to cart</button>
+          <div className={"flex flex-wrap gap-2"}>
+            <button className={"w-full md:w-auto btn btn-indigo"}>Add to cart</button>
 
-            <button className={"btn btn-indigo bg-indigo-200 text-indigo-700 font-medium focus:text-white"}>
+            <button className={"w-full md:w-auto btn btn-indigo bg-indigo-200 text-indigo-700 font-medium focus:text-white"}>
               Buy Now
             </button>
           </div>
         </div>
+      
       </div>
+
     </div>
   )
 }

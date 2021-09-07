@@ -28,7 +28,7 @@ const Search = () => {
       <input
         type="text"
         placeholder={"What are you looking for?"}
-        className={"input-field text-sm p-2 bg-gray-100 border-indigo-600 text-indigo-600 w-72 m-0"}
+        className={"input-field text-sm p-2 bg-gray-100 border-indigo-600 text-indigo-600 md:w-72 w-full m-0"}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

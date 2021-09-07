@@ -12,8 +12,8 @@ const Cart = () => {
         return "Loading ..."
 
     return (
-        <div className={"container mx-auto space-y-6 mt-4 w-full sm:w-8/12 md:w-6/12 lg:w-6/12"}>
-            <h2 className={"title"}>Your Shopping Cart</h2>
+        <div className={"max-w-screen-md p-4 mx-auto space-y-6 mt-4"}>
+            <h2 className={"title mb-8"}>Your Shopping Cart</h2>
 
             <div className="mt-4">
                 {line_items.map(item => <CartItem key={item.id} {...item}/>)}
