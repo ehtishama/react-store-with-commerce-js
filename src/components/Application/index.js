@@ -8,6 +8,7 @@ import Cart from "../Cart/Cart"
 import Checkout from "../Checkout/Checkout"
 import { commerce } from "../../lib/commerce"
 import { setCart } from "../../redux/reducers/cartReducer"
+import Footer from "../Footer/Footer"
 
 import "./index.css"
 
@@ -17,8 +18,6 @@ export function useQuery() {
 
 export default function Application() {
     const dispatch = useDispatch()
-
-
 
     useEffect(() => {
         const getCart = async () => {
@@ -50,6 +49,8 @@ export default function Application() {
                     <Checkout />
                 </Route>
             </Switch>
+
+            <Footer />
         </>
     )
 }
