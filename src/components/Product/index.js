@@ -4,6 +4,7 @@ import { setCart } from "../../redux/reducers/cartReducer"
 import { useDispatch } from "react-redux"
 import { commerce } from "../../lib/commerce"
 import { Rating } from "@material-ui/lab"
+import {Fade} from 'react-awesome-reveal'
 
 function Product({ product }) {
     const { id, name, media, price } = product
@@ -17,6 +18,7 @@ function Product({ product }) {
 
     return (
         <div className="lg:w-1/3 sm:w-1/2 w-full p-2" key={id}>
+            
             <div className={"border rounded hover:shadow dark:bg-gray-800 dark:border-gray-600"}>
                 <Link to={`/product-details/${id}`}>
                     <div className="h-72 p-4">
@@ -32,6 +34,7 @@ function Product({ product }) {
                     </button>
                 </div>
             </div>
+            
         </div>
     )
 }

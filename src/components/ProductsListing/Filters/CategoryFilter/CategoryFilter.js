@@ -43,7 +43,7 @@ const CategoryFilter = () => {
 
     return (
         <div>
-            <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Categories</h4>
+            {/* <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Categories</h4> */}
 
             {categories.map((category) => (
                 <div className="flex gap-2 items-center" key={category.id}>

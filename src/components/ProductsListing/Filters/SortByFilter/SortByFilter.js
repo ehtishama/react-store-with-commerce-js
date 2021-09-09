@@ -30,7 +30,7 @@ const SortByFilter = () => {
 
     return (
         <div className="">
-            <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Sort by</h4>
+            {/* <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Sort by</h4> */}
 
             <RadioGroup name="sort-by" value={sortBy} onChange={handleSortByChange}>
                 <div className="flex gap-2 items-center">

@@ -7,6 +7,7 @@ import { useState } from "react"
 import ProductLoader from "./ProductLoader/ProductLoader"
 import { commerce } from "../../lib/commerce"
 import { addProducts } from "../../redux/reducers/productReducer"
+import { Fade } from "react-awesome-reveal"
 
 function ProductsListings() {
     let products = useSelector((state) => state.products)
@@ -45,24 +46,26 @@ function ProductsListings() {
 
                 {products.length !== 0 && !loading && (
                     <div className="lg:w-9/12 md:w-8/12 mx-auto space-y-6 order-1">
-                        <div className="flex flex-wrap justify-start">
-                            {searchResults.length > 0 &&
-                                searchResults.map((product) => <Product key={product.id} product={product} />)}
-                            {!searchResults.length &&
-                                products.map((product) => <Product key={product.id} product={product} />)}
-                        </div>
+                            <Fade direction="up" triggerOnce cascade>
+                            <div className="flex flex-wrap justify-start">
+                                {searchResults.length > 0 &&
+                                    searchResults.map((product) => <Product key={product.id} product={product} />)}
+                                {!searchResults.length &&
+                                    products.map((product) => <Product key={product.id} product={product} />)}
+                            </div>
 
-                        <div className="flex justify-end">
-                            <Pagination
-                                count={pagination.total_pages}
-                                page={pagination.current_page}
-                                onChange={handlePageChange}
-                                variant="outlined"
-                                shape="rounded"
-                                size="large"
-                            />
+                            <div className="flex justify-end">
+                                <Pagination
+                                    count={pagination.total_pages}
+                                    page={pagination.current_page}
+                                    onChange={handlePageChange}
+                                    variant="outlined"
+                                    shape="rounded"
+                                    size="large"
+                                />
+                            </div>
+                    </Fade>
                         </div>
-                    </div>
                 )}
 
                 {(products.length === 0 || loading) && <ListingLoader />}

@@ -43,7 +43,7 @@ const PriceRangeFilter = () => {
 
     return (
         <div className="">
-            <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Price Range</h4>
+            {/* <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Price Range</h4> */}
             <Slider
                 valueLabelDisplay="auto"
                 aria-labelledby="range-slider"
