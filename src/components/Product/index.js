@@ -4,7 +4,6 @@ import { setCart } from "../../redux/reducers/cartReducer"
 import { useDispatch } from "react-redux"
 import { commerce } from "../../lib/commerce"
 import { Rating } from "@material-ui/lab"
-import {Fade} from 'react-awesome-reveal'
 
 function Product({ product }) {
     const { id, name, media, price } = product
@@ -29,7 +28,7 @@ function Product({ product }) {
                     <div className="text-gray-700 h-6 overflow-hidden dark:text-gray-200">{name}</div>
                     <Rating readOnly value={4.5} />
                     <div className="font-medium text-gray-800 dark:text-gray-200">{price.formatted_with_symbol}</div>
-                    <button className="btn btn-indigo-secondary w-full mt-4 font-medium " onClick={handleAddCartClick}>
+                    <button className="btn btn-indigo-secondary w-full mt-4 font-medium" onClick={handleAddCartClick}>
                         Add to cart
                     </button>
                 </div>

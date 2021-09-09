@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 const Accordian = ({ children, title }) => {
     const [open, setOpen] = useState(false)
-    const active = open? 'bg-indigo-300': ''
+    const active = open? 'bg-indigo-200': ''
 
     return (
         <div>
