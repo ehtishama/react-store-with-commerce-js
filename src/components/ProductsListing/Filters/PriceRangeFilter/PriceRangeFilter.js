@@ -43,7 +43,7 @@ const PriceRangeFilter = () => {
 
     return (
         <div className="">
-            <h4 className="title text-lg text-indigo-600 font-medium mb-2">Price Range</h4>
+            <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Price Range</h4>
             <Slider
                 valueLabelDisplay="auto"
                 aria-labelledby="range-slider"
@@ -53,12 +53,12 @@ const PriceRangeFilter = () => {
             />
 
             <div className="flex items-center">
-                <span className="h-full block py-2 px-4 mb-1 font-medium bg-gray-200 text-lg border rounded-tl rounded-bl">
+                <span className="h-full block py-2 px-4 mb-1 font-medium bg-gray-200 text-lg border rounded-tl rounded-bl dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 ">
                     $
                 </span>
                 <input
                     type="number"
-                    className="input-field p-2 rounded-tl-none rounded-bl-none"
+                    className="input-field p-2 rounded-tl-none rounded-bl-none dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200"
                     placeholder="min"
                     onChange={handleMinInputChange}
                     value={minPrice}
@@ -67,12 +67,12 @@ const PriceRangeFilter = () => {
             </div>
 
             <div className={"flex items-center"}>
-                <span className="h-full block py-2 px-4 mb-1 font-medium bg-gray-200 text-lg border rounded-tl rounded-bl">
+                <span className="h-full block py-2 px-4 mb-1 font-medium bg-gray-200 text-lg border rounded-tl rounded-bl dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 ">
                     $
                 </span>
                 <input
                     type="number"
-                    className="input-field p-2 rounded-tl-none rounded-bl-none"
+                    className="input-field p-2 rounded-tl-none rounded-bl-none dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200"
                     placeholder="max"
                     onChange={handleMaxInputChange}
                     value={maxPrice}

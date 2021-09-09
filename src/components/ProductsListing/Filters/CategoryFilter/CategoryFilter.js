@@ -43,12 +43,12 @@ const CategoryFilter = () => {
 
     return (
         <div>
-            <h4 className="title text-lg text-indigo-600 font-medium mb-2">Categories</h4>
+            <h4 className="title text-lg text-indigo-600 dark:text-indigo-400 font-medium mb-2">Categories</h4>
 
             {categories.map((category) => (
                 <div className="flex gap-2 items-center" key={category.id}>
                     <Checkbox id={category.id} value={category.id} color={"primary"} onChange={handleCategorySelect} />
-                    <label htmlFor={category.id} className="select-none cursor-pointer font-medium text-gray-700">
+                    <label htmlFor={category.id} className="select-none cursor-pointer font-medium text-gray-700 dark:text-gray-200">
                         {category.name}
                     </label>
                 </div>
