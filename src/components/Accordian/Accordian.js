@@ -9,7 +9,7 @@ const Accordian = ({ children, title }) => {
             <button onClick={() => setOpen((open) => !open)}
                 className={`font-medium text-indigo-600 w-full flex justify-between bg-indigo-50 hover:bg-indigo-200 p-3 rounded-lg ${active}`}>
                 <p>{title}</p>
-                <span>
+                <span tabIndex="-1">
                     {!open && '▶'}
                     {open && '🔽'}
                 </span>

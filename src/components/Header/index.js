@@ -10,7 +10,7 @@ export default function Header() {
     const cartItemCount = useSelector(state => state.cart.total_unique_items)
 
     return (
-        <div className="bg-white dark:bg-gray-800 dark:border-gray-600 border-b mb-8">
+        <header className="bg-white dark:bg-gray-800 dark:border-gray-600 border-b mb-8">
             <div className="container mx-auto p-4 flex items-center gap-2 justify-between">
                 <Link to={"/"}>
                     <img src={logo} alt="Logo" className="w-28"/>
@@ -20,7 +20,7 @@ export default function Header() {
                     <Search />
                 </div>
 
-                <Link to={'/cart'}>
+                <Link to={'/cart'} aria-label="Goto cart">
                     <div className={"text-gray-700 hover:bg-gray-200 p-2 rounded-full cursor-pointer relative"}>
                         <MdShoppingCart size={30} className="" />
                         <p
@@ -30,6 +30,6 @@ export default function Header() {
                     </div>
                 </Link>
             </div>
-        </div>
+        </header>
     );
 }

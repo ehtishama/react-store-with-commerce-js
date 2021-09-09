@@ -25,7 +25,9 @@ const Search = () => {
 
   return (
     <form onSubmit={handleSearchSubmit} className="flex items-center gap-1">
+
       <input
+        aria-label="Search"
         type="text"
         placeholder={"What are you looking for?"}
         className={"input-field text-sm p-2 bg-gray-100 dark:bg-gray-800 shadow-inner text-indigo-600 dark:text-gray-200 md:w-72 w-full m-0"}
@@ -33,7 +35,7 @@ const Search = () => {
         onChange={(e) => setQuery(e.target.value)}
       />
 
-      <button className={"btn btn-indigo py-2 px-4"}>
+      <button className={"btn btn-indigo py-2 px-4"} aria-label="Submit search query">
         <MdSearch size={22} />
       </button>
     </form>
